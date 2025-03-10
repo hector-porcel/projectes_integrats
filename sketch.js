@@ -8,6 +8,10 @@ let velocitat = 2;
 
 //prova
 
+
+//Daniel?
+
+
 let dibuixarRestants = true;
 let colors = [];
 let colorMostrat;
