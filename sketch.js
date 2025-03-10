@@ -6,7 +6,7 @@ let dibuixarRestants = true;
 let colors = [];
 let colorMostrat;
 let numeroCorrecte;
-
+//1234
 function setup() {
   createCanvas(400, 400);
   frameRate(60);
