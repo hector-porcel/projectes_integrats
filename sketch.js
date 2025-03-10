@@ -6,9 +6,6 @@ let velocitat = 2;
 
 //98765
 
-
-
-
 let dibuixarRestants = true;
 let colors = [];
 let colorMostrat;
