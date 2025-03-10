@@ -4,10 +4,6 @@ let velocitat = 2;
 
 //prova
 
-//98765
-
-//prova
-
 
 //Daniel?
 
