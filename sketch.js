@@ -11,7 +11,7 @@ let colorMostrat;
 let numeroCorrecte;
 //1234
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(1920, 1080);
   frameRate(60);
   
   colors = generarColorsAleatoris();
