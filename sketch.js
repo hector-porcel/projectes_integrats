@@ -2,10 +2,7 @@ let q1, q2, q3, q4;
 let qs = [];
 let velocitat = 2;
 
-//prova
 
-
-//Daniel?
 
 
 let dibuixarRestants = true;
