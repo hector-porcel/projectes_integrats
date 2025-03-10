@@ -10,6 +10,7 @@ let numeroCorrecte;
 function setup() {
   createCanvas(400, 400);
   frameRate(60);
+  //prova
   
   colors = generarColorsAleatoris();
   
