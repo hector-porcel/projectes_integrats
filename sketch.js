@@ -6,10 +6,7 @@ let velocitat = 2;
 
 //98765
 
-//prova
 
-
-//Daniel?
 
 
 let dibuixarRestants = true;
