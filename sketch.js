@@ -24,7 +24,7 @@ function setup() {
   
   seleccionaColorCorrecte();
 }
-
+//Prova5
 function draw() {
   background(220);
   dibuixaCinta();
