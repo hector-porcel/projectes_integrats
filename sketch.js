@@ -1,16 +1,26 @@
+
+
 let q1, q2, q3, q4;
 let qs = [];
 let velocitat = 5;
 
 let pantalla = 2;
+//Serial
 
+let serial;
+let latestData = "";
 
 let dibuixarRestants = true;
 let colors = [];
 let colorMostrat;
 let numeroCorrecte;
-//1234
+
 function setup() {
+
+  serial = new p5.SerialPort(); 
+  serial.list(); 
+  serial.open('COM3'); 
+  serial.on('data', serialEvent); 
   createCanvas(1020, 800);
   frameRate(60);
 
@@ -63,7 +73,9 @@ function ronda() {
 
   dibuixarRestants = false;
 }
+//////////////////////////////////////////////////////////////
 
+///////////////////Inputs////////////////////////////////////
 function keyPressed() {
   if (keyCode >= 49 && keyCode <= 51) {
     let numeroPremut = keyCode - 48;
@@ -77,6 +89,27 @@ function keyPressed() {
     ronda();
   }
 }
+function serialEvent() {
+  let inData = serial.readLine();
+  if (inData && inData.trim().length > 0) { // Verifica que no sea null o vacío
+    latestData = inData.trim();
+    let numeroRecibido = parseInt(latestData);
+    print("Dato recibido:", latestData);
+
+    if (!isNaN(numeroRecibido) && numeroRecibido === numeroCorrecte) { 
+      print("✅ Correcto");
+    } else {
+      print("❌ Incorrecto");
+    }
+    
+    velocitat += 0.3;
+    ronda();
+  }
+}
+
+  
+
+
 
 function generarColorsAleatoris() {
   return [
