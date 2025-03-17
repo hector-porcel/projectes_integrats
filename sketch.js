@@ -1,5 +1,5 @@
-const INICI=1;
-const JOC=2;
+const INICI = 1;
+const JOC = 2;
 
 
 
@@ -7,7 +7,7 @@ let q1, q2, q3, q4;
 let qs = [];
 let velocitat = 5;
 
-let pantalla = JOC;
+let pantalla = INICI;
 //Serial
 
 let serial;
@@ -19,12 +19,13 @@ let colorMostrat;
 let numeroCorrecte;
 
 function setup() {
-
+  textAlign(CENTER);
+  textSize(30);
   print(MISSATGES[IDIOMA]['Bon dia'])
-  serial = new p5.SerialPort(); 
-  serial.list(); 
-  serial.open('COM3'); 
-  serial.on('data', serialEvent); 
+  serial = new p5.SerialPort();
+  serial.list();
+  serial.open('COM3');
+  serial.on('data', serialEvent);
   createCanvas(1020, 800);
   frameRate(60);
 
@@ -44,7 +45,8 @@ function setup() {
 function draw() {
   background(220);
   switch (pantalla) {
-    case 1:
+    case INICI:
+      inici()
       break;
     case JOC:
       joc();
@@ -81,17 +83,21 @@ function ronda() {
 
 ///////////////////Inputs////////////////////////////////////
 function keyPressed() {
+  if (pantalla==INICI){
+   pantalla=JOC;
 
-  if (pantalla==JOC){
-  if (key == "d") {
-   numeroPremut =1;
+
   }
-  if (key == "a") {
-    numeroPremut =2;
-  }
-  if (key == "s") {
-  numeroPremut =3;
-  }
+  else if (pantalla == JOC) {
+    if (key == "1") {
+      numeroPremut = 1;
+    }
+    if (key == "2") {
+      numeroPremut = 2;
+    }
+    if (key == "3") {
+      numeroPremut = 3;
+    }
 
     if (numeroPremut === numeroCorrecte) {
       print("SI");
@@ -100,7 +106,7 @@ function keyPressed() {
     }
     velocitat = velocitat + 0.3;
     ronda();
-  }
+  } 
 }
 function serialEvent() {
   let inData = serial.readLine();
@@ -109,18 +115,18 @@ function serialEvent() {
     let numeroRecibido = parseInt(latestData);
     print("Dato recibido:", latestData);
 
-    if (!isNaN(numeroRecibido) && numeroRecibido === numeroCorrecte) { 
+    if (!isNaN(numeroRecibido) && numeroRecibido === numeroCorrecte) {
       print("✅ Correcto");
     } else {
       print("❌ Incorrecto");
     }
-    
+
     velocitat += 0.3;
     ronda();
   }
 }
 
-  
+
 
 
 
@@ -161,4 +167,7 @@ class Quadrat {
     this.color = c;
 
   }
+}
+function inici() {
+  text(MISSATGES[IDIOMA]['Bon dia'], width / 2, height / 2)
 }
