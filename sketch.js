@@ -1,10 +1,13 @@
+const INICI=1;
+const JOC=2;
+
 
 
 let q1, q2, q3, q4;
 let qs = [];
 let velocitat = 5;
 
-let pantalla = 2;
+let pantalla = JOC;
 //Serial
 
 let serial;
@@ -17,6 +20,7 @@ let numeroCorrecte;
 
 function setup() {
 
+  print(MISSATGES[IDIOMA]['Bon dia'])
   serial = new p5.SerialPort(); 
   serial.list(); 
   serial.open('COM3'); 
@@ -42,7 +46,7 @@ function draw() {
   switch (pantalla) {
     case 1:
       break;
-    case 2:
+    case JOC:
       joc();
       break;
     default:
@@ -77,8 +81,17 @@ function ronda() {
 
 ///////////////////Inputs////////////////////////////////////
 function keyPressed() {
-  if (keyCode >= 49 && keyCode <= 51) {
-    let numeroPremut = keyCode - 48;
+
+  if (pantalla==JOC){
+  if (key == "d") {
+   numeroPremut =1;
+  }
+  if (key == "a") {
+    numeroPremut =2;
+  }
+  if (key == "s") {
+  numeroPremut =3;
+  }
 
     if (numeroPremut === numeroCorrecte) {
       print("SI");
