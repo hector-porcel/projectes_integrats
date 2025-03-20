@@ -1,17 +1,13 @@
 const INICI = 1;
 const JOC = 2;
 
-
-
 let q1, q2, q3, q4;
 let qs = [];
 let velocitat = 5;
-
 let pantalla = INICI;
-//Serial
 
-let serial;
-let latestData = "";
+
+
 
 let dibuixarRestants = true;
 let colors = [];
@@ -19,14 +15,16 @@ let colorMostrat;
 let numeroCorrecte;
 
 function setup() {
-  textAlign(CENTER);
-  textSize(30);
-  
-  serial = new p5.SerialPort();
- serial.open('COM3');
-  serial.on('data', serialEvent);
   createCanvas(1020, 800);
   frameRate(60);
+  
+  
+ 
+  
+  
+
+  textAlign(CENTER);
+  textSize(30);
 
   colors = generarColorsAleatoris();
 
@@ -45,13 +43,32 @@ function draw() {
   background(220);
   switch (pantalla) {
     case INICI:
-      inici()
+      inici();
       break;
     case JOC:
       joc();
       break;
-    default:
-      break;
+  }
+}
+
+function inici() {
+  noLoop();
+  text("Presiona cualquier tecla para empezar", width / 2, height / 2);
+}
+
+function joc() {
+  background(220);
+  dibuixaCinta();
+
+  for (let q of qs) {
+    q.dibuixa();
+  }
+
+  q4.dibuixa();
+  q4.mou();
+
+  if (q4.x > width) {
+    ronda();
   }
 }
 
@@ -75,66 +92,32 @@ function ronda() {
   seleccionaColorCorrecte();
 
   q4.x = -100;
-
   dibuixarRestants = false;
 }
-//////////////////////////////////////////////////////////////
 
-///////////////////Inputs////////////////////////////////////
-function xx(key){
-  if (pantalla==INICI){
-    pantalla=JOC;
-   loop();
- 
-   }
-   else if (pantalla == JOC) {
-     if (key == "1") {
-       numeroPremut = 1;
-     }
-     if (key == "2") {
-       numeroPremut = 2;
-     }
-     if (key == "3") {
-       numeroPremut = 3;
-     }
-     
- 
-     if (numeroPremut === numeroCorrecte) {
-       print("SI");
-     } else {
-       print("NO");
-     }
-     velocitat = velocitat + 0.3;
-     ronda();
-   } 
-}
-function keyPressed() {
-  xx(key);
-
-}
-function serialEvent() {
-  print("Entra");
-  
-  let inData = serial.readLine();
-  print(inData);
-  if (inData && inData.trim().length > 0) { // Verifica que no sea null o vacío
-    latestData = inData.trim();
+// Función para gestionar entradas
+function xx(key) {
+  if (pantalla == INICI) {
+    pantalla = JOC;
+    loop();
+  } else if (pantalla == JOC) {
+    let numeroPremut = parseInt(key);
     
-    let numeroRecibido = parseInt(latestData);
-    print("Dato recibido:", latestData);
-
-    if (!isNaN(numeroRecibido) && numeroRecibido === numeroCorrecte) {
-      print("✅ Correcto");
-    } else {
-      print("❌ Incorrecto");
+    if (!isNaN(numeroPremut)) {
+      if (numeroPremut === numeroCorrecte) {
+        print("✅ Correcto");
+      } else {
+        print("❌ Incorrecto");
+      }
+      velocitat += 0.3;
+      ronda();
     }
-
-    velocitat += 0.3;
-    ronda();
   }
 }
 
-
+function keyPressed() {
+  xx(key);
+}
 
 
 
@@ -173,10 +156,5 @@ class Quadrat {
 
   canvi(c) {
     this.color = c;
-
   }
-}
-function inici() {
-  noLoop();
-  text(MISSATGES[IDIOMA]['Bon dia'], width / 2, height / 2)
 }
