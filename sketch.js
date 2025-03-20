@@ -21,10 +21,9 @@ let numeroCorrecte;
 function setup() {
   textAlign(CENTER);
   textSize(30);
-  print(MISSATGES[IDIOMA]['Bon dia'])
+  
   serial = new p5.SerialPort();
-  serial.list();
-  serial.open('COM3');
+ serial.open('COM3');
   serial.on('data', serialEvent);
   createCanvas(1020, 800);
   frameRate(60);
@@ -82,36 +81,45 @@ function ronda() {
 //////////////////////////////////////////////////////////////
 
 ///////////////////Inputs////////////////////////////////////
-function keyPressed() {
+function xx(key){
   if (pantalla==INICI){
-   pantalla=JOC;
+    pantalla=JOC;
+   loop();
+ 
+   }
+   else if (pantalla == JOC) {
+     if (key == "1") {
+       numeroPremut = 1;
+     }
+     if (key == "2") {
+       numeroPremut = 2;
+     }
+     if (key == "3") {
+       numeroPremut = 3;
+     }
+     
+ 
+     if (numeroPremut === numeroCorrecte) {
+       print("SI");
+     } else {
+       print("NO");
+     }
+     velocitat = velocitat + 0.3;
+     ronda();
+   } 
+}
+function keyPressed() {
+  xx(key);
 
-
-  }
-  else if (pantalla == JOC) {
-    if (key == "1") {
-      numeroPremut = 1;
-    }
-    if (key == "2") {
-      numeroPremut = 2;
-    }
-    if (key == "3") {
-      numeroPremut = 3;
-    }
-
-    if (numeroPremut === numeroCorrecte) {
-      print("SI");
-    } else {
-      print("NO");
-    }
-    velocitat = velocitat + 0.3;
-    ronda();
-  } 
 }
 function serialEvent() {
+  print("Entra");
+  
   let inData = serial.readLine();
+  print(inData);
   if (inData && inData.trim().length > 0) { // Verifica que no sea null o vacío
     latestData = inData.trim();
+    
     let numeroRecibido = parseInt(latestData);
     print("Dato recibido:", latestData);
 
@@ -169,5 +177,6 @@ class Quadrat {
   }
 }
 function inici() {
+  noLoop();
   text(MISSATGES[IDIOMA]['Bon dia'], width / 2, height / 2)
 }
