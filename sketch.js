@@ -1,8 +1,6 @@
 const INICI = 1;
 const JOC = 2;
 
-
-
 let q1, q2, q3, q4;
 let qs = [];
 let velocitat = 5;
@@ -18,12 +16,16 @@ let colors = [];
 let colorMostrat;
 let numeroCorrecte;
 
+let missatge = "";
+let tempsMissatge = 0;
+let mostrarMissatge = false;
+
 function setup() {
   textAlign(CENTER);
   textSize(30);
   
   serial = new p5.SerialPort();
- serial.open('COM3');
+  serial.open('COM3');
   serial.on('data', serialEvent);
   createCanvas(1020, 800);
   frameRate(60);
@@ -53,6 +55,13 @@ function draw() {
     default:
       break;
   }
+
+  if (mostrarMissatge) {
+    text(missatge, width / 2, height / 4);
+    if (millis() - tempsMissatge > 1000) {
+      mostrarMissatge = false;
+    }
+  }
 }
 
 function dibuixaCinta() {
@@ -78,39 +87,37 @@ function ronda() {
 
   dibuixarRestants = false;
 }
-//////////////////////////////////////////////////////////////
 
-///////////////////Inputs////////////////////////////////////
 function xx(key){
-  if (pantalla==INICI){
-    pantalla=JOC;
-   loop();
- 
-   }
-   else if (pantalla == JOC) {
-     if (key == "1") {
-       numeroPremut = 1;
-     }
-     if (key == "2") {
-       numeroPremut = 2;
-     }
-     if (key == "3") {
-       numeroPremut = 3;
-     }
-     
- 
-     if (numeroPremut === numeroCorrecte) {
-       print("SI");
-     } else {
-       print("NO");
-     }
-     velocitat = velocitat + 0.3;
-     ronda();
-   } 
+  if (pantalla == INICI){
+    pantalla = JOC;
+    loop();
+  } else if (pantalla == JOC) {
+    let numeroPremut;
+    if (key == "1") {
+      numeroPremut = 1;
+    }
+    if (key == "2") {
+      numeroPremut = 2;
+    }
+    if (key == "3") {
+      numeroPremut = 3;
+    }
+
+    if (numeroPremut === numeroCorrecte) {
+      missatge = "correcte";
+    } else {
+      missatge = "incorrecte";
+    }
+    mostrarMissatge = true;
+    tempsMissatge = millis();
+    velocitat = velocitat + 0.3;
+    ronda();
+  }
 }
+
 function keyPressed() {
   xx(key);
-
 }
 function serialEvent() {
   print("Entra");
@@ -125,8 +132,10 @@ function serialEvent() {
 
     if (!isNaN(numeroRecibido) && numeroRecibido === numeroCorrecte) {
       print("✅ Correcto");
+      //missatge = "correcte";
     } else {
       print("❌ Incorrecto");
+      //missatge = "incorrecte";
     }
 
     velocitat += 0.3;
