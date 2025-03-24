@@ -94,13 +94,13 @@ function xx(key){
     loop();
   } else if (pantalla == JOC) {
     let numeroPremut;
-    if (key == "W") {
+    if (key == "w") {
       numeroPremut = 1;
     }
-    if (key == "A") {
+    if (key == "a") {
       numeroPremut = 2;
     }
-    if (key == "S") {
+    if (key == "s") {
       numeroPremut = 3;
     }
 
