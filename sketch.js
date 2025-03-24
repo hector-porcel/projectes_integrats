@@ -4,10 +4,12 @@ const JOC = 2;
 let q1, q2, q3, q4;
 let qs = [];
 let velocitat = 5;
+
 let pantalla = INICI;
+//Seriall
 
-
-
+let serial;
+let latestData = "";
 
 let dibuixarRestants = true;
 let colors = [];
@@ -19,25 +21,14 @@ let tempsMissatge = 0;
 let mostrarMissatge = false;
 
 function setup() {
-<<<<<<< HEAD
-=======
   textAlign(CENTER);
   textSize(30);
   
   serial = new p5.SerialPort();
   serial.open('COM3');
   serial.on('data', serialEvent);
->>>>>>> 7b87ce184783f20bcfe85579508d99cf60999fce
   createCanvas(1020, 800);
   frameRate(60);
-  
-  
- 
-  
-  
-
-  textAlign(CENTER);
-  textSize(30);
 
   colors = generarColorsAleatoris();
 
@@ -56,32 +47,13 @@ function draw() {
   background(220);
   switch (pantalla) {
     case INICI:
-      inici();
+      inici()
       break;
     case JOC:
       joc();
       break;
-  }
-}
-
-function inici() {
-  noLoop();
-  text("Presiona cualquier tecla para empezar", width / 2, height / 2);
-}
-
-function joc() {
-  background(220);
-  dibuixaCinta();
-
-  for (let q of qs) {
-    q.dibuixa();
-  }
-
-  q4.dibuixa();
-  q4.mou();
-
-  if (q4.x > width) {
-    ronda();
+    default:
+      break;
   }
 
   if (mostrarMissatge) {
@@ -112,27 +84,10 @@ function ronda() {
   seleccionaColorCorrecte();
 
   q4.x = -100;
+
   dibuixarRestants = false;
 }
 
-<<<<<<< HEAD
-// Función para gestionar entradas
-function xx(key) {
-  if (pantalla == INICI) {
-    pantalla = JOC;
-    loop();
-  } else if (pantalla == JOC) {
-    let numeroPremut = parseInt(key);
-    
-    if (!isNaN(numeroPremut)) {
-      if (numeroPremut === numeroCorrecte) {
-        print("✅ Correcto");
-      } else {
-        print("❌ Incorrecto");
-      }
-      velocitat += 0.3;
-      ronda();
-=======
 function xx(key){
   if (pantalla == INICI){
     pantalla = JOC;
@@ -181,14 +136,14 @@ function serialEvent() {
     } else {
       print("❌ Incorrecto");
       //missatge = "incorrecte";
->>>>>>> 7b87ce184783f20bcfe85579508d99cf60999fce
     }
+
+    velocitat += 0.3;
+    ronda();
   }
 }
 
-function keyPressed() {
-  xx(key);
-}
+
 
 
 
@@ -227,5 +182,10 @@ class Quadrat {
 
   canvi(c) {
     this.color = c;
+
   }
+}
+function inici() {
+  noLoop();
+  text(MISSATGES[IDIOMA]['Bon dia'], width / 2, height / 2)
 }
