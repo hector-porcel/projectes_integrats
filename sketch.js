@@ -6,7 +6,7 @@ let qs = [];
 let velocitat = 5;
 
 let pantalla = INICI;
-//Seriall
+//Serialll
 
 let serial;
 let latestData = "";
