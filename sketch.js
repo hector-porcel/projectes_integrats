@@ -103,8 +103,9 @@ function xx(key){
     if (key == "s") {
       numeroPremut = 3;
     }
-
+    textSize(30);
     if (numeroPremut === numeroCorrecte) {
+      
       missatge = "correcte";
     } else {
       missatge = "incorrecte";
