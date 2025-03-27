@@ -20,9 +20,10 @@ let missatge = "";
 let tempsMissatge = 0;
 let mostrarMissatge = false;
 
+
 function setup() {
   textAlign(CENTER);
-  textSize(30);
+  textSize(60);
   
   serial = new p5.SerialPort();
   serial.open('COM3');
@@ -56,11 +57,21 @@ function draw() {
       break;
   }
 
+  if (mostrarMissatge){
+    if (missatge == "correcte"){
+      fill (0,200,0);
+    }
+    else if (missatge == "incorrecte"){
+      fill(200,0,0);
+    }
+  }
+
   if (mostrarMissatge) {
     text(missatge, width / 2, height / 4);
     if (millis() - tempsMissatge > 1000) {
       mostrarMissatge = false;
     }
+
   }
 }
 
@@ -94,13 +105,13 @@ function xx(key){
     loop();
   } else if (pantalla == JOC) {
     let numeroPremut;
-    if (key == "w") {
+    if (key == "1") {
       numeroPremut = 1;
     }
-    if (key == "a") {
+    if (key == "2") {
       numeroPremut = 2;
     }
-    if (key == "s") {
+    if (key == "3") {
       numeroPremut = 3;
     }
     textSize(30);
@@ -116,6 +127,7 @@ function xx(key){
     ronda();
   }
 }
+
 
 function keyPressed() {
   xx(key);
