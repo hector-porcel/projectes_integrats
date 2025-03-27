@@ -4,6 +4,8 @@ const JOC = 2;
 let q1, q2, q3, q4;
 let qs = [];
 let velocitat = 5;
+let missatgesCorrectes=["ben fet", "correcte", "perfecte", "has encertat"]
+let missatgesIncorrectes=["incorrecte", "torna", "prova novament", "has fallat"]
 
 let pantalla = INICI;
 //Serialll
@@ -58,10 +60,10 @@ function draw() {
   }
 
   if (mostrarMissatge){
-    if (missatge == "correcte"){
+    if (missatge == "ben fet" || missatge == "correcte" || missatge == "perfecte" || missatge == "has encertat"){
       fill (0,200,0);
     }
-    else if (missatge == "incorrecte"){
+    else if (missatge == "incorrecte" || missatge == "torna" || missatge == "prova novament" || missatge == "has fallat"){
       fill(200,0,0);
     }
   }
@@ -117,9 +119,9 @@ function xx(key){
     textSize(30);
     if (numeroPremut === numeroCorrecte) {
       
-      missatge = "correcte";
+      missatge = random(missatgesCorrectes);
     } else {
-      missatge = "incorrecte";
+      missatge = random(missatgesIncorrectes);
     }
     mostrarMissatge = true;
     tempsMissatge = millis();
