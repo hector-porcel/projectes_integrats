@@ -4,7 +4,7 @@ const JOC = 2;
 let q1, q2, q3, q4;
 let qs = [];
 let velocitat = 5;
-let missatgesCorrectes=["ben fet", "correcte", "perfecte", "has encertat"]
+let missatgesCorrectes=["ben fet", "correcte", "perfecte encert", "has encertat"]
 let missatgesIncorrectes=["incorrecte", "torna", "prova novament", "has fallat"]
 
 let pantalla = INICI;
