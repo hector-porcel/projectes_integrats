@@ -22,7 +22,6 @@ let missatge = "";
 let tempsMissatge = 0;
 let mostrarMissatge = false;
 
-
 function setup() {
   textAlign(CENTER);
   textSize(60);
@@ -55,6 +54,9 @@ function draw() {
     case JOC:
       joc();
       break;
+    case "FINAL":
+      mostrarLeaderboard();
+      break;
     default:
       break;
   }
@@ -73,7 +75,6 @@ function draw() {
     if (millis() - tempsMissatge > 1000) {
       mostrarMissatge = false;
     }
-
   }
 }
 
@@ -101,8 +102,8 @@ function ronda() {
   dibuixarRestants = false;
 }
 
-function xx(key){
-  if (pantalla == INICI){
+function xx(key) {
+  if (pantalla == INICI) {
     pantalla = JOC;
     loop();
   } else if (pantalla == JOC) {
@@ -118,49 +119,40 @@ function xx(key){
     }
     textSize(30);
     if (numeroPremut === numeroCorrecte) {
-      
       missatge = random(missatgesCorrectes);
     } else {
       missatge = random(missatgesIncorrectes);
     }
     mostrarMissatge = true;
     tempsMissatge = millis();
-    velocitat = velocitat + 0.3;
-    ronda();
+    velocitat += 0.3;
+    if (velocitat > 10) { // Condició per finalitzar el joc
+      pantalla = "FINAL";
+      finalJoc();
+    } else {
+      ronda();
+    }
   }
 }
-
 
 function keyPressed() {
   xx(key);
 }
+
 function serialEvent() {
-  print("Entra");
-  
   let inData = serial.readLine();
-  print(inData);
-  if (inData && inData.trim().length > 0) { // Verifica que no sea null o vacío
+  if (inData && inData.trim().length > 0) {
     latestData = inData.trim();
-    
     let numeroRecibido = parseInt(latestData);
-    print("Dato recibido:", latestData);
-
     if (!isNaN(numeroRecibido) && numeroRecibido === numeroCorrecte) {
-      print("✅ Correcto");
-      //missatge = "correcte";
+      print("✅ Correcte");
     } else {
-      print("❌ Incorrecto");
-      //missatge = "incorrecte";
+      print("❌ Incorrecte");
     }
-
     velocitat += 0.3;
     ronda();
   }
 }
-
-
-
-
 
 function generarColorsAleatoris() {
   return [
@@ -197,10 +189,37 @@ class Quadrat {
 
   canvi(c) {
     this.color = c;
-
   }
 }
+
 function inici() {
   noLoop();
-  text(MISSATGES[IDIOMA]['Bon dia'], width / 2, height / 2)
+  text("Bon dia", width / 2, height / 2);
+}
+
+function guardarPuntuacio(nom, puntuacio) {
+  let dades = JSON.parse(localStorage.getItem("leaderboard")) || [];
+  dades.push({ nom, puntuacio });
+  dades.sort((a, b) => b.puntuacio - a.puntuacio);
+  localStorage.setItem("leaderboard", JSON.stringify(dades));
+}
+
+function mostrarLeaderboard() {
+  let dades = JSON.parse(localStorage.getItem("leaderboard")) || [];
+  background(220);
+  textSize(40);
+  text("Leaderboard", width / 2, 100);
+  textSize(30);
+  for (let i = 0; i < dades.length && i < 5; i++) {
+    text(`${i + 1}. ${dades[i].nom} - ${dades[i].puntuacio}`, width / 2, 200 + i * 50);
+  }
+}
+
+function finalJoc() {
+  noLoop();
+  let nom = prompt("Introdueix el teu nom per guardar la puntuació:");
+  if (nom) {
+    guardarPuntuacio(nom, velocitat);
+  }
+  mostrarLeaderboard();
 }
