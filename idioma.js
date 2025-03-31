@@ -3,11 +3,22 @@ IDIOMA=0;
 MISSATGES = [
     {
         'Bon dia' : 'Bon dia',
-        'incorrecte':'incorrecte'
+        'incorrecte':'incorrecte',
+        'ben fet': 'ben fet',
+        'correcte' : 'correcte',
+        'perfecte' : 'perfecte',
+        'has encertat' : 'has encertat',
+        'prova novament' : 'prova novament',
+        'has fallat' : 'has fallat'
     },
     {
         'Bon dia' : 'Buenos dias',
-        'incorrecte':'incorrecto'
-
+        'incorrecte':'incorrecto',
+        'ben fet' : 'bien hecho',
+        'correcte' : 'correcto',
+        'perfecte' : 'perfecto',
+        'has encertat' : 'has acertado',
+        'prova novament' : 'prueba otra vez',
+        'has fallat' : 'has fallado'
     }
 ]

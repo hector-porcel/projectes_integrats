@@ -63,7 +63,7 @@ function draw() {
     if (missatge == "ben fet" || missatge == "correcte" || missatge == "perfecte" || missatge == "has encertat"){
       fill (0,200,0);
     }
-    else if (missatge == "incorrecte" || missatge == "torna" || missatge == "prova novament" || missatge == "has fallat"){
+    else if (missatge == "incorrecte" ||  missatge == "prova novament" || missatge == "has fallat"){
       fill(200,0,0);
     }
   }
