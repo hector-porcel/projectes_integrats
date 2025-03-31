@@ -9,7 +9,8 @@ MISSATGES = [
         'perfecte' : 'perfecte',
         'has encertat' : 'has encertat',
         'prova novament' : 'prova novament',
-        'has fallat' : 'has fallat'
+        'has fallat' : 'has fallat',
+        'torna intentar' : 'torna intentar'
     },
     {
         'Bon dia' : 'Buenos dias',
@@ -19,6 +20,7 @@ MISSATGES = [
         'perfecte' : 'perfecto',
         'has encertat' : 'has acertado',
         'prova novament' : 'prueba otra vez',
-        'has fallat' : 'has fallado'
+        'has fallat' : 'has fallado',
+        'torna intentar' : 'vuelve intentar'
     }
 ]

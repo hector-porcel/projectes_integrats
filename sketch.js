@@ -4,8 +4,8 @@ const JOC = 2;
 let q1, q2, q3, q4;
 let qs = [];
 let velocitat = 5;
-let missatgesCorrectes=["ben fet", "correcte", "perfecte encert", "has encertat"]
-let missatgesIncorrectes=["incorrecte", "torna", "prova novament", "has fallat"]
+let missatgesCorrectes=[MISSATGES[IDIOMA]['ben fet'], MISSATGES[IDIOMA]['correcte'], MISSATGES[IDIOMA]['perfecte'], MISSATGES[IDIOMA]['has encertat']];
+let missatgesIncorrectes=[MISSATGES[IDIOMA]['incorrecte'], MISSATGES[IDIOMA]['torna intentar'], MISSATGES[IDIOMA]['prova novament'], MISSATGES[IDIOMA]['has fallat']];
 
 let pantalla = INICI;
 //Serialll
@@ -60,10 +60,10 @@ function draw() {
   }
 
   if (mostrarMissatge){
-    if (missatge == "ben fet" || missatge == "correcte" || missatge == "perfecte" || missatge == "has encertat"){
+    if (missatge == MISSATGES[IDIOMA]['ben fet'] || missatge == MISSATGES[IDIOMA]['correcte'] || missatge == MISSATGES[IDIOMA]['perfecte'] || missatge == MISSATGES[IDIOMA]['has encertat']){
       fill (0,200,0);
     }
-    else if (missatge == "incorrecte" ||  missatge == "prova novament" || missatge == "has fallat"){
+    else if (missatge == MISSATGES[IDIOMA]['incorrecte'] || missatge == MISSATGES[IDIOMA]['torna intentar'] || missatge == MISSATGES[IDIOMA]['prova novament'] || missatge == MISSATGES[IDIOMA]['has fallat']){
       fill(200,0,0);
     }
   }
