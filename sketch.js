@@ -1,6 +1,6 @@
 const INICI = 1;
 const JOC = 2;
-
+let fallos=0;
 let q1, q2, q3, q4;
 let qs = [];
 let velocitat = 5;
@@ -49,12 +49,16 @@ function draw() {
   background(220);
   switch (pantalla) {
     case INICI:
+      fallos=0;
       inici()
+      
       break;
     case JOC:
+      
       joc();
       break;
     case "FINAL":
+      fallos=0;
       mostrarLeaderboard();
       break;
     default:
@@ -120,13 +124,16 @@ function xx(key) {
     textSize(30);
     if (numeroPremut === numeroCorrecte) {
       missatge = random(missatgesCorrectes);
+      
     } else {
       missatge = random(missatgesIncorrectes);
+      fallos=fallos+1;
+      print(fallos);
     }
     mostrarMissatge = true;
     tempsMissatge = millis();
     velocitat += 0.3;
-    if (velocitat > 10) { // Condició per finalitzar el joc
+    if (fallos==3) { // Condició per finalitzar el joc
       pantalla = "FINAL";
       finalJoc();
     } else {

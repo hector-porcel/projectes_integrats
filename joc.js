@@ -1,4 +1,5 @@
 function joc(){
+  
     dibuixaCinta();
 
     q4.mou();
