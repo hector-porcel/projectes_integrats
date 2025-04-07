@@ -58,6 +58,7 @@ function draw() {
       joc();
       break;
     case "FINAL":
+      mostrarMissatge = false;
       fallos=0;
       mostrarLeaderboard();
       break;
