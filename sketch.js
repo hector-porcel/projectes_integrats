@@ -81,6 +81,10 @@ function draw() {
     }
   }
 }
+function inici() {
+  noLoop();
+  dibuixarTitol();
+}
 
 function dibuixaCinta() {
   fill(100);
@@ -177,10 +181,7 @@ class Quadrat {
   }
 }
 
-function inici() {
-  noLoop();
-  text("Bon dia", width / 2, height / 2);
-}
+
 
 function guardarPuntuacio(nom, puntuacio) {
   let dades = JSON.parse(localStorage.getItem("leaderboard")) || [];
@@ -196,7 +197,7 @@ function mostrarLeaderboard() {
   text("Leaderboard", width / 2, 100);
   textSize(30);
   for (let i = 0; i < dades.length && i < 5; i++) {
-    text(`${i + 1}. ${dades[i].nom} - ${dades[i].puntuacio}`, width / 2, 200 + i * 50);
+    text(`${i + 1}. ${dades[i].nom} - ${floor(dades[i].puntuacio)}`, width / 2, 200 + i * 60);
   }
 }
 
