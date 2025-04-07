@@ -18,3 +18,34 @@ function joc(){
     }
   
 }
+
+function seleccionaColorCorrecte(d) {
+  let index = floor(random(d));
+  colorMostrat = colors[index];
+  numeroCorrecte = index + 1;
+  q4.canvi(colorMostrat);
+}
+
+function generarColorsAleatoris() {
+  return [
+    color(random(0, 255), random(0, 255), random(0, 255)),
+    color(random(0, 255), random(0, 255), random(0, 255)),
+    color(random(0, 255), random(0, 255), random(0, 255)),
+    color(random(0, 255), random(0, 255), random(0, 255))
+  ];
+}
+
+function ronda() {
+  colors = generarColorsAleatoris();
+
+  q1.canvi(colors[0]);
+  q2.canvi(colors[1]);
+  q3.canvi(colors[2]);
+
+
+  seleccionaColorCorrecte(d);
+
+  q4.x = -100;
+
+  dibuixarRestants = false;
+}

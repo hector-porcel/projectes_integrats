@@ -6,7 +6,7 @@ let qs = [];
 let velocitat = 5;
 let missatgesCorrectes=[MISSATGES[IDIOMA]['ben fet'], MISSATGES[IDIOMA]['correcte'], MISSATGES[IDIOMA]['perfecte'], MISSATGES[IDIOMA]['has encertat']];
 let missatgesIncorrectes=[MISSATGES[IDIOMA]['incorrecte'], MISSATGES[IDIOMA]['torna intentar'], MISSATGES[IDIOMA]['prova novament'], MISSATGES[IDIOMA]['has fallat']];
-
+let d=4;
 let pantalla = INICI;
 //Serialll
 
@@ -42,7 +42,7 @@ function setup() {
 
   q4 = new Quadrat(-100, height / 2 - 50, 100, 100, color(20, 200, 20));
 
-  seleccionaColorCorrecte();
+  seleccionaColorCorrecte(d);
 }
 
 function draw() {
@@ -92,19 +92,7 @@ function dibuixaCinta() {
   }
 }
 
-function ronda() {
-  colors = generarColorsAleatoris();
 
-  q1.canvi(colors[0]);
-  q2.canvi(colors[1]);
-  q3.canvi(colors[2]);
-
-  seleccionaColorCorrecte();
-
-  q4.x = -100;
-
-  dibuixarRestants = false;
-}
 
 function xx(key) {
   if (pantalla == INICI) {
@@ -120,6 +108,9 @@ function xx(key) {
     }
     if (key == "3") {
       numeroPremut = 3;
+    }
+    if (key == "4") {
+      numeroPremut = 4;
     }
     textSize(30);
     if (numeroPremut === numeroCorrecte) {
@@ -161,20 +152,7 @@ function serialEvent() {
   }
 }
 
-function generarColorsAleatoris() {
-  return [
-    color(random(0, 255), random(0, 255), random(0, 255)),
-    color(random(0, 255), random(0, 255), random(0, 255)),
-    color(random(0, 255), random(0, 255), random(0, 255))
-  ];
-}
 
-function seleccionaColorCorrecte() {
-  let index = floor(random(3));
-  colorMostrat = colors[index];
-  numeroCorrecte = index + 1;
-  q4.canvi(colorMostrat);
-}
 
 class Quadrat {
   constructor(x, y, ample, alt, c) {
