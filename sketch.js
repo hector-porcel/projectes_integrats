@@ -21,6 +21,9 @@ let numeroCorrecte;
 let missatge = "";
 let tempsMissatge = 0;
 let mostrarMissatge = false;
+let puntuacio;
+
+let punts;
 
 function setup() {
   textAlign(CENTER);
@@ -83,7 +86,7 @@ function draw() {
   }
 }
 function inici() {
-  noLoop();
+  //noLoop();
   dibuixarTitol();
 }
 
@@ -101,8 +104,17 @@ function dibuixaCinta() {
 
 function xx(key) {
   if (pantalla == INICI) {
+    if (key==3){
+      if (IDIOMA==0){
+        IDIOMA=1
+      }
+      else{IDIOMA=0;}
+    }
+    else{
     pantalla = JOC;
-    loop();
+    puntuacio=0;
+    print(IDIOMA);
+    loop();}
   } else if (pantalla == JOC) {
     let numeroPremut;
     if (key == "1") {
@@ -117,9 +129,13 @@ function xx(key) {
     if (key == "4") {
       numeroPremut = 4;
     }
+    if (key == "k") {
+      puntuacio+=100;
+    }
     textSize(30);
     if (numeroPremut === numeroCorrecte) {
       missatge = random(missatgesCorrectes);
+      puntuacio++;
       
     } else {
       missatge = random(missatgesIncorrectes);
@@ -206,7 +222,8 @@ function finalJoc() {
   noLoop();
   let nom = prompt("Introdueix el teu nom per guardar la puntuació:");
   if (nom) {
-    guardarPuntuacio(nom, velocitat);
+    guardarPuntuacio(nom, puntuacio);
   }
   mostrarLeaderboard();
+  print(puntuacio);
 }
