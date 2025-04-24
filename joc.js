@@ -16,6 +16,7 @@ function joc(){
         q.dibuixa();
       }
     }
+    dibuixarCors();
   
 }
 
@@ -48,4 +49,13 @@ function ronda() {
   q4.x = -100;
 
   dibuixarRestants = false;
+}
+function dibuixarCors() {
+  let vides = 3 - fallos;
+  let posX = 10;
+  let posY = 20;
+
+  for (let i = 0; i < vides; i++) {
+    image(cor, posX + i * 40, posY, 30, 30); 
+  }
 }

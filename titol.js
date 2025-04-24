@@ -36,19 +36,6 @@ function dibuixarTitol() {
   }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 function drawButton(boto) {
   
     fill(50, 50, 50, 100);

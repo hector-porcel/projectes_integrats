@@ -8,7 +8,7 @@ let missatgesCorrectes=[MISSATGES[IDIOMA]['ben fet'], MISSATGES[IDIOMA]['correct
 let missatgesIncorrectes=[MISSATGES[IDIOMA]['incorrecte'], MISSATGES[IDIOMA]['torna intentar'], MISSATGES[IDIOMA]['prova novament'], MISSATGES[IDIOMA]['has fallat']];
 let d=4;
 let pantalla = INICI;
-//Serialll
+//Serial
 
 let serial;
 let latestData = "";
@@ -25,13 +25,25 @@ let puntuacio;
 
 let punts;
 
+//Imatges
+let cor;
+let cors;
+
+function preload(){
+  cor = loadImage('vida.png');
+}
+
 function setup() {
+  
+  
   textAlign(CENTER);
   textSize(60);
-  
+  /*
   serial = new p5.SerialPort();
   serial.open('COM3');
   serial.on('data', serialEvent);
+  */
+
   createCanvas(1020, 800);
   frameRate(60);
 
@@ -49,7 +61,9 @@ function setup() {
 }
 
 function draw() {
+ 
   background(220);
+  
   switch (pantalla) {
     case INICI:
       fallos=0;
@@ -209,6 +223,7 @@ function guardarPuntuacio(nom, puntuacio) {
 
 function mostrarLeaderboard() {
   let dades = JSON.parse(localStorage.getItem("leaderboard")) || [];
+  fill(0,0,0);
   background(220);
   textSize(40);
   text("Leaderboard", width / 2, 100);
