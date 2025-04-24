@@ -118,6 +118,8 @@ function dibuixaCinta() {
 
 function xx(key) {
   if (pantalla == INICI) {
+    if (key==1){}
+    if (key==2){}
     if (key==3){
       if (IDIOMA==0){
         IDIOMA=1

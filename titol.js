@@ -1,7 +1,7 @@
 
 
 let botons;
-let idioma = [["Juga.a", "Taula.s", "Idioma.d", "Morrocotudo's Boxes"], ["Juega", "Tabla", "Idioma", "Morrocotudo's Boxes"]];
+let idioma = [["Juga.1", "Taula.2", "Idioma.3", "Morrocotudo's Boxes"], ["Juega.1", "Tabla.2", "Idioma.3", "Morrocotudo's Boxes"]];
 let a = 0;
 
 
@@ -9,10 +9,10 @@ let a = 0;
 
 function dibuixarTitol() {
     botons = [
-        { x:width/2-50, y:150, w: 120, h: 70, text: idioma[a][0], c: color(100, 180, 255) },
+        { x:width/2-50, y:150, w: 120, h: 70, text: idioma[IDIOMA][0], c: color(100, 180, 255) },
         { x:width/2-150, y:height/2, w: 120, h: 50, text: idioma[IDIOMA][1], c: color(255, 180, 100) },
         { x:width / 2+90, y:height/2, w: 100, h: 50, text: idioma[IDIOMA][2], c: color(150, 255, 150) },
-        {x:width /2-100, y: 20, w: 240, h: 50, text:idioma[a] [IDIOMA],c:color(210,210,240) }
+        {x:width /2-100, y: 20, w: 240, h: 50, text:idioma[IDIOMA] [3],c:color(210,210,240) }
       ];
     
     background(230,240,240); 
