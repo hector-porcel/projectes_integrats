@@ -35,7 +35,6 @@ function preload(){
 
 function setup() {
   
-  
   textAlign(CENTER);
   textSize(60);
   /*
@@ -67,10 +66,13 @@ function draw() {
   switch (pantalla) {
     case INICI:
       fallos=0;
-      inici()
+      inici();
       
       break;
     case JOC:
+       missatgesCorrectes=[MISSATGES[IDIOMA]['ben fet'], MISSATGES[IDIOMA]['correcte'], MISSATGES[IDIOMA]['perfecte'], MISSATGES[IDIOMA]['has encertat']];
+       missatgesIncorrectes=[MISSATGES[IDIOMA]['incorrecte'], MISSATGES[IDIOMA]['torna intentar'], MISSATGES[IDIOMA]['prova novament'], MISSATGES[IDIOMA]['has fallat']];
+
       
       joc();
       break;
@@ -100,7 +102,7 @@ function draw() {
   }
 }
 function inici() {
-  //noLoop();
+  
   dibuixarTitol();
 }
 
@@ -118,20 +120,22 @@ function dibuixaCinta() {
 
 function xx(key) {
   if (pantalla == INICI) {
-    if (key==1){}
-    if (key==2){}
-    if (key==3){
-      if (IDIOMA==0){
-        IDIOMA=1
-      }
-      else{IDIOMA=0;}
+    if (key == 1) {
+      pantalla = JOC;
+      puntuacio = 0;
+      print(IDIOMA);
+      loop();
+    } else if (key == 2) {
+      pantalla = "FINAL";
+      print("Hola");
+    } else if (key == 3) {
+      if (IDIOMA == 0) {
+        IDIOMA = 1;
+      } else {
+        IDIOMA = 0;
+      }     
     }
-    else{
-    pantalla = JOC;
-    puntuacio=0;
-    print(IDIOMA);
-    loop();}
-  } else if (pantalla == JOC) {
+  } else if (pantalla == JOC) {      
     let numeroPremut;
     if (key == "1") {
       numeroPremut = 1;
@@ -168,6 +172,14 @@ function xx(key) {
       ronda();
     }
   }
+  else if(pantalla=="FINAL"){
+    print("P=INICI"); 
+    pantalla=INICI;
+   loop();
+
+  }
+  
+
 }
 
 function keyPressed() {
