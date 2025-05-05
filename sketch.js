@@ -28,9 +28,11 @@ let punts;
 //Imatges
 let cor;
 let cors;
+let fons;
 
 function preload(){
   cor = loadImage('vida.png');
+  fons=loadImage('portada.jpg');
 }
 
 function setup() {

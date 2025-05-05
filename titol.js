@@ -14,8 +14,8 @@ function dibuixarTitol() {
         { x:width / 2+90, y:height/2, w: 100, h: 50, text: idioma[IDIOMA][2], c: color(150, 255, 150) },
         {x:width /2-100, y: 20, w: 240, h: 50, text:idioma[IDIOMA] [3],c:color(210,210,240) }
       ];
-    
-    background(230,240,240); 
+
+    background(fons); 
     textSize(24);
     textAlign(CENTER, CENTER);
     noStroke();
