@@ -165,6 +165,8 @@ function xx(key) {
     mostrarMissatge = true;
     tempsMissatge = millis();
     velocitat += 0.3;
+
+
     if (fallos==3) { // Condició per finalitzar el joc
       pantalla = "FINAL";
       finalJoc();

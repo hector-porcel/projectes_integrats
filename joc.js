@@ -1,5 +1,5 @@
 function joc(){
-  
+    velocitat=5;
     dibuixaCinta();
 
     q4.mou();
