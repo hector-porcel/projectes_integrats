@@ -33,6 +33,8 @@ let fons;
 function preload(){
   cor = loadImage('vida.png');
   fons=loadImage('portada.jpg');
+  soCorrecte = loadSound('Correcte_Audio.mp3');
+  soIncorrecte = loadSound('Incorrecte_Audio.mp3');
 }
 
 function setup() {
@@ -156,13 +158,17 @@ function xx(key) {
     }
     textSize(30);
     if (numeroPremut === numeroCorrecte) {
+      soCorrecte.play()
       missatge = random(missatgesCorrectes);
       puntuacio++;
       
+      
     } else {
+      soIncorrecte.play()
       missatge = random(missatgesIncorrectes);
       fallos=fallos+1;
       print(fallos);
+      
     }
     mostrarMissatge = true;
     tempsMissatge = millis();
