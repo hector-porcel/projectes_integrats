@@ -30,11 +30,13 @@ let cor;
 let cors;
 let fons;
 let leaderboardimg;
+let fonsjoc;
 
 function preload(){
   cor = loadImage('vida.png');
   fons = loadImage('portada.png');
   leaderboardimg = loadImage('leaderboard.png');
+  fonsjoc = loadImage('fons.png')
   soCorrecte = loadSound('Correcte_Audio.mp3')
   soIncorrecte = loadSound('Incorrecte_Audio.mp3');
 }
@@ -67,7 +69,7 @@ function setup() {
 
 function draw() {
  
-  background(220);
+  background(fonsjoc);
   
   switch (pantalla) {
     case INICI:
