@@ -33,7 +33,7 @@ let fons;
 function preload(){
   cor = loadImage('vida.png');
   fons=loadImage('portada.jpg');
-  soCorrecte = loadSound('Correcte_Audio.mp3');
+  soCorrecte = loadSound('Correcte_Audio.mp3')
   soIncorrecte = loadSound('Incorrecte_Audio.mp3');
 }
 
