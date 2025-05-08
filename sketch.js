@@ -29,10 +29,12 @@ let punts;
 let cor;
 let cors;
 let fons;
+let leaderboardimg;
 
 function preload(){
   cor = loadImage('vida.png');
-  fons=loadImage('portada.jpg');
+  fons = loadImage('portada.png');
+  leaderboardimg = loadImage('leaderboard.png');
   soCorrecte = loadSound('Correcte_Audio.mp3')
   soIncorrecte = loadSound('Incorrecte_Audio.mp3');
 }
@@ -248,7 +250,7 @@ function guardarPuntuacio(nom, puntuacio) {
 function mostrarLeaderboard() {
   let dades = JSON.parse(localStorage.getItem("leaderboard")) || [];
   fill(0,0,0);
-  background(220);
+  background(leaderboardimg);
   textSize(40);
   text("Leaderboard", width / 2, 100);
   textSize(30);
