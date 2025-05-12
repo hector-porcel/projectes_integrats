@@ -1,4 +1,5 @@
 const INICI = 1;
+const SELECTOR = 3;
 const JOC = 2;
 let fallos=0;
 let q1, q2, q3, q4;
@@ -8,6 +9,7 @@ let missatgesCorrectes=[MISSATGES[IDIOMA]['ben fet'], MISSATGES[IDIOMA]['correct
 let missatgesIncorrectes=[MISSATGES[IDIOMA]['incorrecte'], MISSATGES[IDIOMA]['torna intentar'], MISSATGES[IDIOMA]['prova novament'], MISSATGES[IDIOMA]['has fallat']];
 let d=4;
 let pantalla = INICI;
+
 //Serial
 
 let serial;
@@ -77,6 +79,12 @@ function draw() {
       inici();
       
       break;
+
+      case SELECTOR:
+        
+        selector();
+        
+        break;
     case JOC:
        missatgesCorrectes=[MISSATGES[IDIOMA]['ben fet'], MISSATGES[IDIOMA]['correcte'], MISSATGES[IDIOMA]['perfecte'], MISSATGES[IDIOMA]['has encertat']];
        missatgesIncorrectes=[MISSATGES[IDIOMA]['incorrecte'], MISSATGES[IDIOMA]['torna intentar'], MISSATGES[IDIOMA]['prova novament'], MISSATGES[IDIOMA]['has fallat']];
@@ -129,7 +137,7 @@ function dibuixaCinta() {
 function xx(key) {
   if (pantalla == INICI) {
     if (key == 1) {
-      pantalla = JOC;
+      pantalla = SELECTOR;
       puntuacio = 0;
       print(IDIOMA);
       loop();
