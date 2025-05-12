@@ -151,7 +151,30 @@ function xx(key) {
         IDIOMA = 0;
       }     
     }
-  } else if (pantalla == JOC) {      
+  } 
+  
+  else if (pantalla == SELECTOR) {
+
+      if (key == "1") {
+      d=3;
+      print(d);
+      pantalla=JOC;
+    }
+    if (key == "2") {
+      d=4;
+      print(d);
+      pantalla=JOC;
+    }
+    if (key == "3") {
+      d=4;
+      velocitat=10;
+      print(d);
+      pantalla=JOC;
+    }
+
+  }
+  
+  else if (pantalla == JOC) {      
     let numeroPremut;
     if (key == "1") {
       numeroPremut = 1;
