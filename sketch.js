@@ -5,8 +5,8 @@ let fallos=0;
 let q1, q2, q3, q4;
 let qs = [];
 let velocitat = 5;
-let missatgesCorrectes=[MISSATGES[IDIOMA]['ben fet'], MISSATGES[IDIOMA]['correcte'], MISSATGES[IDIOMA]['perfecte'], MISSATGES[IDIOMA]['has encertat']];
-let missatgesIncorrectes=[MISSATGES[IDIOMA]['incorrecte'], MISSATGES[IDIOMA]['torna intentar'], MISSATGES[IDIOMA]['prova novament'], MISSATGES[IDIOMA]['has fallat']];
+let missatgesCorrectes=[MISSATGES[IDIOMA]['Ben fet'], MISSATGES[IDIOMA]['Correcte'], MISSATGES[IDIOMA]['Perfecte'], MISSATGES[IDIOMA]['Has encertat']];
+let missatgesIncorrectes=[MISSATGES[IDIOMA]['Incorrecte'], MISSATGES[IDIOMA]['Torna intentar'], MISSATGES[IDIOMA]['Prova novament'], MISSATGES[IDIOMA]['Has fallat']];
 let d=4;
 let pantalla = INICI;
 
@@ -86,8 +86,8 @@ function draw() {
         
         break;
     case JOC:
-       missatgesCorrectes=[MISSATGES[IDIOMA]['ben fet'], MISSATGES[IDIOMA]['correcte'], MISSATGES[IDIOMA]['perfecte'], MISSATGES[IDIOMA]['has encertat']];
-       missatgesIncorrectes=[MISSATGES[IDIOMA]['incorrecte'], MISSATGES[IDIOMA]['torna intentar'], MISSATGES[IDIOMA]['prova novament'], MISSATGES[IDIOMA]['has fallat']];
+       missatgesCorrectes=[MISSATGES[IDIOMA]['Ben fet'], MISSATGES[IDIOMA]['Correcte'], MISSATGES[IDIOMA]['Perfecte'], MISSATGES[IDIOMA]['Has encertat']];
+       missatgesIncorrectes=[MISSATGES[IDIOMA]['Incorrecte'], MISSATGES[IDIOMA]['Torna intentar'], MISSATGES[IDIOMA]['Prova novament'], MISSATGES[IDIOMA]['Has fallat']];
 
       
       joc();
@@ -102,10 +102,10 @@ function draw() {
   }
 
   if (mostrarMissatge){
-    if (missatge == MISSATGES[IDIOMA]['ben fet'] || missatge == MISSATGES[IDIOMA]['correcte'] || missatge == MISSATGES[IDIOMA]['perfecte'] || missatge == MISSATGES[IDIOMA]['has encertat']){
+    if (missatge == MISSATGES[IDIOMA]['Ben fet'] || missatge == MISSATGES[IDIOMA]['Correcte'] || missatge == MISSATGES[IDIOMA]['Perfecte'] || missatge == MISSATGES[IDIOMA]['Has encertat']){
       fill (0,200,0);
     }
-    else if (missatge == MISSATGES[IDIOMA]['incorrecte'] || missatge == MISSATGES[IDIOMA]['torna intentar'] || missatge == MISSATGES[IDIOMA]['prova novament'] || missatge == MISSATGES[IDIOMA]['has fallat']){
+    else if (missatge == MISSATGES[IDIOMA]['Incorrecte'] || missatge == MISSATGES[IDIOMA]['Torna intentar'] || missatge == MISSATGES[IDIOMA]['Prova novament'] || missatge == MISSATGES[IDIOMA]['Has fallat']){
       fill(200,0,0);
     }
   }

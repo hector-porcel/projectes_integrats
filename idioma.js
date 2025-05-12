@@ -3,25 +3,30 @@ IDIOMA=0;
 MISSATGES = [
     {
         'Bon dia' : 'Bon dia',
-        'incorrecte':'incorrecte',
-        'ben fet': 'ben fet',
-        'correcte' : 'correcte',
-        'perfecte' : 'perfecte',
-        'has encertat' : 'has encertat',
-        'prova novament' : 'prova novament',
-        'has fallat' : 'has fallat',
-        'torna intentar' : 'torna intentar'
-        
+        'Incorrecte':'Incorrecte',
+        'Ben fet': 'Ben fet',
+        'Correcte' : 'Correcte',
+        'Perfecte' : 'Perfecte',
+        'Has encertat' : 'Has encertat',
+        'Prova novament' : 'Prova novament',
+        'Has fallat' : 'Has fallat',
+        'Torna a intentar' : 'Torna a intentar',
+        'Fàcil' : 'Fàcil',
+        'Normal' : 'Normal',
+        'Difícil' : 'Difícil'
     },
     {
         'Bon dia' : 'Buenos dias',
-        'incorrecte':'incorrecto',
-        'ben fet' : 'bien hecho',
-        'correcte' : 'correcto',
-        'perfecte' : 'perfecto',
-        'has encertat' : 'has acertado',
-        'prova novament' : 'prueba otra vez',
-        'has fallat' : 'has fallado',
-        'torna intentar' : 'vuelve intentar'
+        'Incorrecte':'Incorrecto',
+        'Ben fet' : 'Bien hecho',
+        'Correcte' : 'Correcto',
+        'Perfecte' : 'Perfecto',
+        'Has encertat' : 'Has acertado',
+        'Prova novament' : 'Prueba otra vez',
+        'Has fallat' : 'Has fallado',
+        'Torna a intentar' : 'Vuelve a intentarlo',
+        'Fàcil' : 'Fácil',
+        'Normal' : 'Normal',
+        'Difícil' : 'Difícil'
     }
 ]
