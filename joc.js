@@ -46,7 +46,8 @@ function ronda() {
 
   seleccionaColorCorrecte(d);
 
-  q4.x = -100;
+  q4.x = -500;
+  
 
   dibuixarRestants = false;
 }
