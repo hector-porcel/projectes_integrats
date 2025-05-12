@@ -40,7 +40,7 @@ function preload(){
   leaderboardimg = loadImage('leaderboard.png');
   fonsjoc = loadImage('fons.png')
   soCorrecte = loadSound('Correcte_Audio.mp3')
-  soIncorrecte = loadSound('Incorrecte_Audio.mp3');
+  soIncorrecte = loadSound('Incorrecte_Audio.mp3'); 
 }
 
 function setup() {

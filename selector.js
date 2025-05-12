@@ -1,11 +1,11 @@
 
 function selector(){
-background(220);
+background(fonsjoc);
 
 textAlign(CENTER, CENTER);
 textSize(64);
 fill(0);
-text("Selecciona la dificultat", width / 2, 60);
+text([MISSATGES[IDIOMA]['Selecciona la dificultat']], width / 2, 60);
 
 fill(0, 255, 0);
 rect(255, 150, 510, 100);

@@ -13,7 +13,8 @@ MISSATGES = [
         'Torna a intentar' : 'Torna a intentar',
         'Fàcil' : 'Fàcil',
         'Normal' : 'Normal',
-        'Difícil' : 'Difícil'
+        'Difícil' : 'Difícil',
+        'Selecciona la dificultat' : 'Selecciona la dificultat'
     },
     {
         'Bon dia' : 'Buenos dias',
@@ -27,6 +28,7 @@ MISSATGES = [
         'Torna a intentar' : 'Vuelve a intentarlo',
         'Fàcil' : 'Fácil',
         'Normal' : 'Normal',
-        'Difícil' : 'Difícil'
+        'Difícil' : 'Difícil',
+        'Selecciona la dificultat' : 'Selecciona la dificultad'
     }
 ]
