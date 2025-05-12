@@ -11,6 +11,7 @@ MISSATGES = [
         'prova novament' : 'prova novament',
         'has fallat' : 'has fallat',
         'torna intentar' : 'torna intentar'
+        
     },
     {
         'Bon dia' : 'Buenos dias',
