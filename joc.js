@@ -26,7 +26,7 @@ function seleccionaColorCorrecte(d) {
   numeroCorrecte = index + 1;
   q4.canvi(colorMostrat);
 }
-
+/*
 function generarColorsAleatoris() {
   return [
     color(random(0, 255), random(0, 255), random(0, 255)),
@@ -35,6 +35,32 @@ function generarColorsAleatoris() {
     color(random(0, 255), random(0, 255), random(0, 255))
   ];
 }
+  */
+ 
+ function generarColorsAleatoris() {
+  let c1 = color(random(255), random(255), random(255));
+  let c23 = [];
+  let d = 50;
+  let marge = 10;
+  let i = 0;
+
+  while (i < 3) {
+    let c = color(random(255), random(255), random(255));
+    let dCalc = dist(red(c1), green(c1), blue(c1), red(c), green(c), blue(c));
+
+    if (dCalc > d + marge) {
+      c23[i] = c;
+      i++;
+    }
+  }
+
+  let c2 = c23[0];
+  let c3 = c23[1];
+  let c4 = c23[2];
+
+  return [c1, c2, c3, c4];
+}
+
 
 function ronda() {
   colors = generarColorsAleatoris();
