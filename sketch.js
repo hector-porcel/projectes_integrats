@@ -275,6 +275,7 @@ class Quadrat {
 
 function guardarPuntuacio(nom, puntuacio) {
   let dades = JSON.parse(localStorage.getItem("leaderboard")) || [];
+  
   dades.push({ nom, puntuacio });
   dades.sort((a, b) => b.puntuacio - a.puntuacio);
   localStorage.setItem("leaderboard", JSON.stringify(dades));
